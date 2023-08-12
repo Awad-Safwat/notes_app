@@ -19,13 +19,13 @@ class ItemNode extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
+              title: Text(
                 'Fluttre tips',
-                style: TextStyle(
-                  fontSize: 28,
-                  color: Colors.black,
-                ),
+                style: 
+                 TextStyle( color : Colors.transparent.withOpacity(0.4),
+                  fontSize: 32,)
               ),
+              
               subtitle: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Text(
@@ -33,18 +33,21 @@ class ItemNode extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.transparent.withOpacity(0.5),
+                    fontFamily: 'assets/fonts/Poppins',
                   ),
                 ),
               ),
               trailing: const Icon(
                 Icons.delete,
                 color: Colors.black,
-                size: 30,
+                size: 32,
               ),
             ),
             Text(
               'May 21,2023',
-              style: TextStyle(color: Colors.transparent.withOpacity(0.4)),
+              style: TextStyle(
+                color: Colors.transparent.withOpacity(0.4),
+              ),
             ),
           ],
         ),
