@@ -8,7 +8,7 @@ class NotesHomeView extends StatelessWidget {
   const NotesHomeView({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Padding(
         padding: EdgeInsets.only(
           top: 38,
