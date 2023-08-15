@@ -19,13 +19,11 @@ class ItemNode extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: Text(
-                'Fluttre tips',
-                style: 
-                 TextStyle( color : Colors.transparent.withOpacity(0.4),
-                  fontSize: 32,)
-              ),
-              
+              title: Text('Fluttre tips',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 28,
+                  )),
               subtitle: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Text(

@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../custome_widgets/app_bar.dart';
 import '../custome_widgets/item_node.dart';
+import '../custome_widgets/notes_listview.dart';
 
 class NotesHomeView extends StatelessWidget {
   const NotesHomeView({super.key});
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
         padding: EdgeInsets.only(
           top: 38,
@@ -20,9 +21,7 @@ class NotesHomeView extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Center(
-              child: ItemNode(),
-            ),
+            NotesListView(),
           ],
         ),
       ),
