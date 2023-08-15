@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../custome_widgets/app_bar.dart';
-import '../custome_widgets/item_node.dart';
+import '../custome_widgets/floating_action_button.dart';
 import '../custome_widgets/notes_listview.dart';
 
 class NotesHomeView extends StatelessWidget {
@@ -11,7 +11,7 @@ class NotesHomeView extends StatelessWidget {
     return const Scaffold(
       body: Padding(
         padding: EdgeInsets.only(
-          top: 38,
+          top: 44,
           right: 16,
           left: 16,
         ),
@@ -25,6 +25,7 @@ class NotesHomeView extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: CustomFloatingActionButton(),
     );
   }
 }
