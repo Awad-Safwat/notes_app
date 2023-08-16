@@ -18,21 +18,17 @@ class BottomSheetBody extends StatelessWidget {
       child: Column(
         children: [
           CustomTextField(
-            minLines: 1,
-            maxLines: 2,
+            maxLines: 1,
             lableText: 'Title',
           ),
           SizedBox(
             height: 12,
           ),
           CustomTextField(
-            minLines: 10,
-            maxLines: 20,
+            maxLines: 10,
             lableText: 'Cotent',
           ),
-          SizedBox(
-            height: 50,
-          ),
+          Spacer(),
           CustomButton(),
         ],
       ),

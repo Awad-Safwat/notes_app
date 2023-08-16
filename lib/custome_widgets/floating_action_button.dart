@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'bottomsheebody.dart';
-import 'custome_button.dart';
-import 'custome_text_field.dart';
+import '../constatns.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
   const CustomFloatingActionButton({
@@ -27,7 +26,7 @@ class CustomFloatingActionButton extends StatelessWidget {
             },
           );
         },
-        backgroundColor: const Color(0xFF54EBD6).withOpacity(1),
+        backgroundColor: kPrimaryColor.withOpacity(1),
         child: const Icon(
           Icons.add,
           size: 40,

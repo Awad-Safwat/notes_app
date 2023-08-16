@@ -15,19 +15,25 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      cursorColor: kPrimaryColor,
+      textAlign: TextAlign.center,
       maxLines: maxLines,
       decoration: InputDecoration(
-        label: Center(
-          child: Text(
-            lableText,
-            style: const TextStyle(
-              color: kPrimaryColor,
-            ),
+          hintText: lableText,
+          hintStyle: const TextStyle(
+            color: kPrimaryColor,
           ),
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+          border: BuildCustomBorder(Colors.white),
+          enabledBorder: BuildCustomBorder(Colors.white),
+          focusedBorder: BuildCustomBorder(kPrimaryColor)),
+    );
+  }
+
+  OutlineInputBorder BuildCustomBorder(Color color) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(8),
+      borderSide: BorderSide(
+        color: color,
       ),
     );
   }
