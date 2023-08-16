@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'bottomsheebody.dart';
+import 'custome_button.dart';
 import 'custome_text_field.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
@@ -10,7 +12,7 @@ class CustomFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 12, bottom: 8),
+      padding: const EdgeInsets.only(right: 8, bottom: 8),
       child: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
@@ -21,31 +23,7 @@ class CustomFloatingActionButton extends StatelessWidget {
             ),
             context: context,
             builder: (BuildContext context) {
-              return Container(
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 25,
-                  ),
-                  child: Column(
-                    children: [
-                      CustomTextField(
-                        minLines: 1,
-                        maxLines: 2,
-                        lableText: 'Title',
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      CustomTextField(
-                        minLines: 10,
-                        maxLines: 20,
-                        lableText: 'Cotent',
-                      ),
-                    ],
-                  ),
-                ),
-              );
+              return const BottomSheetBody();
             },
           );
         },
