@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constatns.dart';
+
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
@@ -10,7 +12,7 @@ class CustomButton extends StatelessWidget {
     return TextButton(
         style: const ButtonStyle(
           backgroundColor: MaterialStatePropertyAll(
-            Color(0xFF54EBD6),
+            kPrimaryColor,
           ),
         ),
         onPressed: () {},
