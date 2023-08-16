@@ -17,7 +17,10 @@ class NotesHomeView extends StatelessWidget {
         ),
         child: Column(
           children: [
-            CustomAppBar(),
+            CustomAppBar(
+              pageTitle: 'Notes',
+              icon: Icons.search,
+            ),
             SizedBox(
               height: 10,
             ),
