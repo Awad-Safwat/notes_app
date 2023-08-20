@@ -6,7 +6,13 @@
     <!-- You can insert your own image assets here -->
     <item>
         <bitmap
-            android:gravity="center"
+            android:gravity="fill"
             android:src="@mipmap/notes_amico" />
     </item>
+    <item android:bottom="300dp">
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/textnotes"/>
+    </item>
+   
 </layer-list>

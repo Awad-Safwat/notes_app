@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="notes_app"
+        android:label="Notes"
         android:name="${applicationName}"
         android:icon="@mipmap/notes_amico">
         <activity
