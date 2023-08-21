@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'custome_button.dart';
 import 'custome_text_field.dart';
@@ -16,25 +17,65 @@ class BottomSheetBody extends StatelessWidget {
           horizontal: 16,
           vertical: 25,
         ),
-        child: Column(
-          children: [
-            CustomTextField(
-              maxLines: 1,
-              lableText: 'Title',
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            CustomTextField(
-              maxLines: 10,
-              lableText: 'Cotent',
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            CustomButton(),
-          ],
-        ),
+        child: bottomSheetBodyForm(),
+      ),
+    );
+  }
+}
+
+class bottomSheetBodyForm extends StatefulWidget {
+  const bottomSheetBodyForm({
+    super.key,
+  });
+
+  @override
+  State<bottomSheetBodyForm> createState() => _bottomSheetBodyFormState();
+}
+
+class _bottomSheetBodyFormState extends State<bottomSheetBodyForm> {
+  GlobalKey<FormState> formKey = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+
+  String? title, subTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: Column(
+        children: [
+          CustomTextFormField(
+            onSaved: (value) {
+              title = value;
+            },
+            maxLines: 1,
+            lableText: 'Title',
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          CustomTextFormField(
+            onSaved: (value) {
+              subTitle = value;
+            },
+            maxLines: 10,
+            lableText: 'Cotent',
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          CustomButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+              } else {
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {});
+              }
+            },
+          ),
+        ],
       ),
     );
   }

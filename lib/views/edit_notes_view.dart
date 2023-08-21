@@ -14,29 +14,52 @@ class EditNotesView extends StatelessWidget {
           right: 16,
           left: 16,
         ),
-        child: Column(
-          children: [
-            CustomAppBar(
-              pageTitle: 'Edit Note',
-              icon: Icons.check,
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            CustomTextField(
-              maxLines: 1,
-              lableText: 'Title',
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            CustomTextField(
-              maxLines: 20,
-              lableText: 'Cotent',
-            ),
-          ],
-        ),
+        child: EditNotesPageForm(),
       ),
+    );
+  }
+}
+
+class EditNotesPageForm extends StatefulWidget {
+  const EditNotesPageForm({
+    super.key,
+  });
+
+  @override
+  State<EditNotesPageForm> createState() => _EditNotesPageFormState();
+}
+
+class _EditNotesPageFormState extends State<EditNotesPageForm> {
+  String? title, content;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const CustomAppBar(
+          pageTitle: 'Edit Note',
+          icon: Icons.check,
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        CustomTextFormField(
+          onSaved: (value) {
+            title = value;
+          },
+          maxLines: 1,
+          lableText: 'Title',
+        ),
+        const SizedBox(
+          height: 12,
+        ),
+        CustomTextFormField(
+          onSaved: (value) {
+            content = value;
+          },
+          maxLines: 20,
+          lableText: 'content',
+        ),
+      ],
     );
   }
 }
