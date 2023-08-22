@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:notes_app/cubits/add_new_notes_cubit/add_new_note_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'custome_button.dart';
 import 'custome_text_field.dart';
 
@@ -40,42 +41,45 @@ class _bottomSheetBodyFormState extends State<bottomSheetBodyForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      autovalidateMode: autovalidateMode,
-      child: Column(
-        children: [
-          CustomTextFormField(
-            onSaved: (value) {
-              title = value;
-            },
-            maxLines: 1,
-            lableText: 'Title',
-          ),
-          const SizedBox(
-            height: 12,
-          ),
-          CustomTextFormField(
-            onSaved: (value) {
-              subTitle = value;
-            },
-            maxLines: 10,
-            lableText: 'Cotent',
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          CustomButton(
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
-            },
-          ),
-        ],
+    return BlocProvider<AddNewNoteCubit>(
+      create: (context) => AddNewNoteCubit(),
+      child: Form(
+        key: formKey,
+        autovalidateMode: autovalidateMode,
+        child: Column(
+          children: [
+            CustomTextFormField(
+              onSaved: (value) {
+                title = value;
+              },
+              maxLines: 1,
+              lableText: 'Title',
+            ),
+            const SizedBox(
+              height: 12,
+            ),
+            CustomTextFormField(
+              onSaved: (value) {
+                subTitle = value;
+              },
+              maxLines: 10,
+              lableText: 'Cotent',
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            CustomButton(
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                  setState(() {});
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
