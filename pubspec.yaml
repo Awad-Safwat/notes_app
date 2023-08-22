@@ -29,17 +29,18 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
   flutter:
     sdk: flutter
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   build_runner: ^2.4.6
+  flutter_bloc: ^8.1.3
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  
+  flutter_top_blocked_bouncing_scroll_physics: ^1.0.0
   hive_generator: ^2.0.1
 
 # For information on the generic Dart part of this file, see the
