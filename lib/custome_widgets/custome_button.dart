@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AddNewNoteCubit, AddNewNoteState>(
       builder: (context, state) {
-        if (BlocProvider.of<AddNewNoteCubit>(context).isLoading) {
+        if (state is AddNewNoteLoading) {
           return TextButton(
             style: const ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(
@@ -23,14 +23,7 @@ class CustomButton extends StatelessWidget {
             ),
             onPressed: onPressed,
             child: const Center(
-              child: Text(
-                'Add',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              child: Center(child: CircularProgressIndicator()),
             ),
           );
         } else {
@@ -41,7 +34,17 @@ class CustomButton extends StatelessWidget {
               ),
             ),
             onPressed: onPressed,
-            child: const Center(child: CircularProgressIndicator()),
+            // child: ,
+            child: const Center(
+              child: Text(
+                'Add',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           );
         }
       },
