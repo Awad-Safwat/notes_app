@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/cubits/validate_user_input_cubit/validate_user_inputs_cubit.dart';
 import '../custome_widgets/app_bar.dart';
 import '../custome_widgets/custome_text_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EditNotesView extends StatelessWidget {
   const EditNotesView({super.key});
@@ -43,7 +45,8 @@ class _EditNotesPageFormState extends State<EditNotesPageForm> {
           height: 30,
         ),
         CustomTextFormField(
-          onSaved: (value) {
+          controller: context.read<ValidateUserInputsCubit>().titleController,
+          onChange: (value) {
             title = value;
           },
           maxLines: 1,
@@ -53,7 +56,8 @@ class _EditNotesPageFormState extends State<EditNotesPageForm> {
           height: 12,
         ),
         CustomTextFormField(
-          onSaved: (value) {
+          controller: context.read<ValidateUserInputsCubit>().bodyController,
+          onChange: (value) {
             content = value;
           },
           maxLines: 20,

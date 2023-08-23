@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/cubits/add_new_notes_cubit/add_new_note_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/validate_user_input_cubit/validate_user_inputs_cubit.dart';
 import 'bottomsheet_body_form.dart';
 
 class BottomSheetBody extends StatelessWidget {
@@ -10,8 +11,11 @@ class BottomSheetBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<AddNewNoteCubit>(
-      create: (context) => AddNewNoteCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => AddNewNoteCubit()),
+        BlocProvider(create: (context) => ValidateUserInputsCubit())
+      ],
       child: BlocConsumer<AddNewNoteCubit, AddNewNoteState>(
         listener: (context, state) {
           if (state is AddNewNoteSucsses) {
@@ -31,7 +35,7 @@ class BottomSheetBody extends StatelessWidget {
                 bottom: MediaQuery.of(context).viewInsets.bottom,
               ),
               child: const SingleChildScrollView(
-                child: bottomSheetBodyForm(),
+                child: BottomSheetBodyForm(),
               ),
             ),
           );
