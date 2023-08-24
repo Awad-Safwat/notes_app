@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_notes_view.dart';
 
 class ItemNode extends StatelessWidget {
   const ItemNode({
     super.key,
-    // required this.notTitle,
-    // required this.notBody,
-    // required this.date,
-    // required this.color,
+    required this.note,
   });
 
-  // final String notTitle, notBody;
-  // final DateTime date;
-  // final Color color;
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -35,15 +32,15 @@ class ItemNode extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ListTile(
-                title: const Text('Fluttre tips',
-                    style: TextStyle(
+                title: Text(note.title,
+                    style: const TextStyle(
                       color: Colors.black,
                       fontSize: 28,
                     )),
                 subtitle: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Text(
-                    'Build your Career with tharwat samy',
+                    note.supTitle,
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.transparent.withOpacity(0.5),
@@ -51,14 +48,18 @@ class ItemNode extends StatelessWidget {
                     ),
                   ),
                 ),
-                trailing: const Icon(
-                  Icons.delete,
+                trailing: IconButton(
                   color: Colors.black,
-                  size: 32,
+                  iconSize: 32,
+                  icon: const Icon(Icons.delete),
+                  onPressed: () {},
                 ),
               ),
               Text(
-                'May 21,2023',
+                DateFormat('yMd')
+                    .add_jm()
+                    .format(DateTime.parse(note.date))
+                    .toString(),
                 style: TextStyle(
                   color: Colors.transparent.withOpacity(0.4),
                 ),
