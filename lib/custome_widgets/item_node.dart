@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_notes_view.dart';
 
@@ -7,9 +9,11 @@ class ItemNode extends StatelessWidget {
   const ItemNode({
     super.key,
     required this.note,
+    required this.noteIndex,
   });
 
   final NoteModel note;
+  final int noteIndex;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -52,7 +56,12 @@ class ItemNode extends StatelessWidget {
                   color: Colors.black,
                   iconSize: 32,
                   icon: const Icon(Icons.delete),
-                  onPressed: () {},
+                  onPressed: () {
+                    BlocProvider.of<NotesCubit>(context)
+                        .notesList![noteIndex]
+                        .delete();
+                    BlocProvider.of<NotesCubit>(context).getNotes();
+                  },
                 ),
               ),
               Text(
