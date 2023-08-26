@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:bloc/bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/constatns.dart';
@@ -6,6 +8,8 @@ part 'add_new_note_state.dart';
 
 class AddNewNoteCubit extends Cubit<AddNewNoteState> {
   AddNewNoteCubit() : super(AddNewNoteInitial());
+
+  Color? selectedColor;
   addNewNote({required NoteModel note}) async {
     emit(AddNewNoteLoading());
 

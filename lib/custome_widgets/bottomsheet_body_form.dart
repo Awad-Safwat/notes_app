@@ -51,7 +51,9 @@ class BottomSheetBodyForm extends StatelessWidget {
                 var addNewNoteCubit = BlocProvider.of<AddNewNoteCubit>(context);
 
                 var note = NoteModel(
-                  Color: Colors.blue.value,
+                  Color: BlocProvider.of<AddNewNoteCubit>(context)
+                      .selectedColor!
+                      .value,
                   title: cubitValues.title!,
                   supTitle: cubitValues.subTitle!,
                   date: DateTime.now().toString(),

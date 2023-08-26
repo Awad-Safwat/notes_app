@@ -26,7 +26,7 @@ class ItemNode extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: const Color(0xFFFDCB78),
+          color: Color(note.Color),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(
