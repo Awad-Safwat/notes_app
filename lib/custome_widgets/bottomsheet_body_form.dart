@@ -20,7 +20,6 @@ class BottomSheetBodyForm extends StatelessWidget {
       child: Column(
         children: [
           CustomTextFormField(
-            controller: cubitValues.titleController,
             onChange: (value) {
               cubitValues.title = value;
             },
@@ -31,7 +30,6 @@ class BottomSheetBodyForm extends StatelessWidget {
             height: 12,
           ),
           CustomTextFormField(
-            controller: cubitValues.bodyController,
             onChange: (value) {
               cubitValues.subTitle = value;
             },

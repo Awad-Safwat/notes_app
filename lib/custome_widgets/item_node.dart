@@ -18,6 +18,7 @@ class ItemNode extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        BlocProvider.of<NotesCubit>(context).selectedNote = note;
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return const EditNotesView();
         }));
