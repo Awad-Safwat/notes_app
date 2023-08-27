@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/cubits/validate_user_input_cubit/validate_user_inputs_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'colors_list_view.dart';
+import 'colors_list_view_add_new_note.dart';
 import 'custome_button.dart';
 import 'custome_text_field.dart';
 
@@ -40,7 +40,7 @@ class BottomSheetBodyForm extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const ColorsList(),
+          const ColorsListViewforAddNewNote(),
           const SizedBox(
             height: 10,
           ),

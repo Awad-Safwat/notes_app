@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:notes_app/cubits/editing_cubit/editing_cubit_cubit.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_notes_view.dart';
@@ -18,7 +19,7 @@ class ItemNode extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<NotesCubit>(context).selectedNote = note;
+        BlocProvider.of<EditingNoteCubit>(context).selectedNote = note;
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return const EditNotesView();
         }));

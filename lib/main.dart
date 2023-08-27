@@ -7,6 +7,7 @@ import 'package:notes_app/simple_bloc_observer.dart';
 import 'package:notes_app/views/notes_home_view.dart';
 
 import 'constatns.dart';
+import 'cubits/editing_cubit/editing_cubit_cubit.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -21,8 +22,15 @@ class MyNotsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => NotesCubit(),
+        ),
+        BlocProvider(
+          create: (context) => EditingNoteCubit(),
+        ),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
